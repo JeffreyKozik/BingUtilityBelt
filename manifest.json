@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Search Engine Utility Belt",
+    "version": "1.0",
+
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "description": "Shows how pervasive ads are on search engines. Ensures results aren't outdated.",
+
+    "author": "Jeffrey Kozik",
+    "background": {
+        "service_worker":
+        "service-worker.js"
+    },
+    "content_scripts": [
+        {
+            "matches":["*://www.bing.com/*"],
+            "js": ["content-script.js"]
+        }
+    ],
+    "host_permissions": [
+        "*://www.bing.com/*"
+    ],
+    "permissions": [
+        "webRequest",
+        "tabs"
+    ]
+}
